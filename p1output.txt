@@ -1,1 +1,95 @@
+~/Test3Session1$ gcc -g p1original.c 
+~/Test3Session1$ gdb a.out 
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8d3: file p1original.c, line 68.
+(gdb) r
+Starting program: /home/runner/Test3Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1original.c:68
+68  {
+(gdb) n
+70      input(&num1, &den1, &num2, &den2);
+(gdb) s
+input (num1=0x7ffc09825800, den1=0x7ffc09825804, 
+    num2=0x7ffc09825808, den2=0x7ffc0982580c)
+    at p1original.c:16
+16      printf("Enter two fractions in the order (Num, den):\n");
+(gdb) n
+Enter two fractions in the order (Num, den):
+17      scanf("%d%d%d%d", num1, den1, num2, den2);
+(gdb) 
+1 4
+2 7
+18  }
+(gdb) n
+main () at p1original.c:71
+71      add(num1, den1, num2, den2, &resNum, &resDen);
+(gdb) i lo
+num1 = 1
+den1 = 4
+num2 = 2
+den2 = 7
+resNum = 159537408
+resDen = 32764
+(gdb) s
+add (num1=1, den1=4, num2=2, den2=7, num3=0x7ffc09825810, 
+    den3=0x7ffc09825814) at p1original.c:51
+51      *num3 = num1 * den2 + num2 * den1;
+(gdb) n
+52      *den3 = den2 * den1;
+(gdb) n
+53  }
+(gdb) n
+main () at p1original.c:72
+72      simplify(&resNum, &resDen);
+(gdb) i lo
+num1 = 1
+den1 = 4
+num2 = 2
+den2 = 7
+resNum = 15
+resDen = 28
+(gdb) s
+simplify (num=0x7ffc09825810, den=0x7ffc09825814)
+    at p1original.c:57
+57      int factor = gcd(*num, *den);
+(gdb) s
+gcd (a=15, b=28) at p1original.c:35
+35      if (a == 0) return b;
+(gdb) n
+36      return gcd(b % a, a);
+(gdb) n
+37  }
+(gdb) n
+simplify (num=0x7ffc09825810, den=0x7ffc09825814)
+    at p1original.c:58
+58      *num /= factor;
+(gdb) i lo
+factor = 1
+(gdb) n
+59      *den /= factor;
+(gdb) n
+60  }
+(gdb) n
+main () at p1original.c:73
+73      output(num1, den1, num2, den2, resNum, resDen);
+(gdb) c
+Continuing.
+1 / 4 + 2 + 7 is 15 / 28
+[Inferior 1 (process 105) exited normally]
