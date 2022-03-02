@@ -1,1 +1,4 @@
-
+gcc -g p3.c                 ✔  3m 10s  
+    ~/Doc/Cod/C/pe/Test3Session1  ./a.out                                ✔ 
+For nCr, enter the value of n and r: 4 2
+For n = 4 and r = 2 nCr = 6
