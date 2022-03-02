@@ -1,1 +1,8 @@
-
+./a.out                                ✔ 
+Enter a fraction like: NUM DEN
+1 7
+Enter a fraction like: NUM DEN
+1 4
+Enter a fraction like: NUM DEN
+1 2
+The largest of 1 / 7 , 1 / 4 and 1 / 2 is 1 / 2
