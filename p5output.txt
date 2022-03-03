@@ -1,1 +1,4 @@
-
+Enter the length of the array: 5
+Enter 5 elemets of array seperated by spaces:
+5 3 2 8 1
+The Index of largest number of the above array is: 3
