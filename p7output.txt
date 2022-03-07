@@ -1,1 +1,189 @@
+ gdb a.out                  SEGV ✘  5s  
+GNU gdb (GDB) 11.2
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
 
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...
+(gdb) b find_gcd 
+Breakpoint 1 at 0x1177: file p7.c, line 23.
+(gdb) r
+Starting program: /home/piyush/Documents/Coding/C/peer-mentor/Test3Session1/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+Enter a fraction like: NUM DEN
+2 4
+Enter a fraction like: NUM DEN
+4
+5
+
+Breakpoint 1, find_gcd (a=26, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) n
+24          return find_gcd(a % b, b);
+(gdb) n
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) n
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) n
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) n
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+
+Breakpoint 1, find_gcd (a=6, b=20) at p7.c:23
+23          if (b == 0) return a;
+(gdb) 
+24          return find_gcd(a % b, b);
+(gdb) 
+    ~/Doc/Cod/C/pe/Test3Session1  gdb a.out                              ✔ 
+GNU gdb (GDB) 11.2
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...
+(gdb) b main
+Breakpoint 1 at 0x12b2: file p7.c, line 54.
+(gdb) r
+Starting program: /home/piyush/Documents/Coding/C/peer-mentor/Test3Session1/a.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, main () at p7.c:54
+54          f1 = input_fraction();
+(gdb) s
+input_fraction () at p7.c:22
+22      {
+(gdb) n
+24          printf("Enter a fraction like: NUM DEN\n");
+(gdb) 
+Enter a fraction like: NUM DEN
+25          scanf("%d%d", &f.num, &f.den);
+(gdb) 
+2 
+4
+26          return f;
+(gdb) i lo
+f = {num = 2, den = 4}
+(gdb) n
+27      }
+(gdb) n
+main () at p7.c:55
+55          f2 = input_fraction();
+(gdb) i lo
+f1 = {num = 2, den = 4}
+f2 = {num = 4096, den = 0}
+sum = {num = 1431654512, den = 21845}
+(gdb) p f1
+$1 = {num = 2, den = 4}
+(gdb) n
+Enter a fraction like: NUM DEN
+4 10
+56          sum = add_fractions(f1, f2);
+(gdb) s
+add_fractions (f1=..., f2=...) at p7.c:38
+38          res.num = f1.num * f2.den + f2.num * f1.den;
+(gdb) n
+39          res.den = f1.den * f2.den;
+(gdb) n
+40          int factor = find_gcd(res.num, res.den);
+(gdb) n
+41          res.num /= factor;
+(gdb) n
+42          res.den /= factor;
+(gdb) n
+43          return res;
+(gdb) n
+44      }
+(gdb) n
+main () at p7.c:57
+57          output(f1, f2, sum);
+(gdb) i lo
+f1 = {num = 2, den = 4}
+f2 = {num = 4, den = 10}
+sum = {num = 9, den = 10}
+(gdb) s
+output (f1=..., f2=..., sum=...) at p7.c:48
+48          printf("%d/%d + %d/%d is %d/%d\n", f1.num, f1.den, f2.num, f2.den, sum.num, sum.den);
+(gdb) n
+2/4 + 4/10 is 9/10
+49      }
+(gdb) n
+main () at p7.c:58
+58          return 0;
+(gdb) c
+Continuing.
+[Inferior 1 (process 2773) exited normally]
