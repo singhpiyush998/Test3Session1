@@ -13,15 +13,11 @@ void input_n_and_r(int* n, int* r)
     scanf("%d%d", n, r);
 }
 
-int fact(int n)
+// nCr = (nCr-1 * n - r + 1) / r
+int find_nCr(int n, int r)
 {
-    if (n == 2) return n;
-    return n * fact(n - 1);
-}
-
-int nCr(int n, int r)
-{
-    return fact(n) / (fact(r) * fact(n - r));
+    if (r == 1) return n;
+    return ((n - r + 1) * find_nCr(n, r - 1)) / r;
 }
 
 void output(int n, int r, int result)
@@ -33,7 +29,7 @@ int main()
 {
     int n, r, res;
     input_n_and_r(&n, &r);
-    res = nCr(n, r);
+    res = find_nCr(n, r);
     output(n, r, res);
     return 0;
 }
