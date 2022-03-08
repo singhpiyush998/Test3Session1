@@ -13,7 +13,7 @@ void input_n_and_r(int* n, int* r)
     scanf("%d%d", n, r);
 }
 
-// nCr = (nCr-1 * n - r + 1) / r
+// nCr = (nCr-1 * (n - r + 1)) / r
 int find_nCr(int n, int r)
 {
     if (r == 1) return n;
